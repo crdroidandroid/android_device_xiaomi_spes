@@ -59,7 +59,6 @@ on post-fs
     chmod 0644 /mnt/vendor/dsp/fastrpc_shell_3
     mount none /mnt/vendor/dsp/fastrpc_shell_3 /vendor/dsp/cdsp/fastrpc_shell_3 bind
 
-on late-init
     # Start services for bootanim
     start surfaceflinger
     start bootanim
