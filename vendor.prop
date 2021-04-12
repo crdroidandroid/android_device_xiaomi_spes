@@ -273,7 +273,6 @@ wifi.aware.interface=wifi-aware0
 # WLAN
 persist.vendor.sys.cnd.iwlan=1
 ro.hardware.wlan.dbs=0
-ro.telephony.iwlan_operation_mode=legacy
 
 # SoC
 ro.soc.manufacturer=Qualcomm
