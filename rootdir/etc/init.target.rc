@@ -55,6 +55,10 @@ on fs
     chmod 0666 /sys/class/thermal/thermal_message/temp_state
     chown system system /sys/class/thermal/thermal_message/temp_state
 
+    #audio
+    chmod 0644 /mnt/vendor/persist/audio/us_manual_cal
+    chmod 0644 /persist/audio/us_manual_cal
+
 on late-fs
     wait_for_prop hwservicemanager.ready true
     exec_start wait_for_keymaster
