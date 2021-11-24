@@ -161,6 +161,10 @@ on boot
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
 
+    # High Brightness mode
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
