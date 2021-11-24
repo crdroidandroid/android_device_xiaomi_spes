@@ -21,4 +21,8 @@
     <string name="refresh_default">Default</string>
     <string name="refresh_standard">Standard (60Hz)</string>
     <string name="refresh_high">High (90Hz)</string>
+
+    <!-- DC dimming settings -->
+    <string name="dc_dimming_enable_title">Anti-Flicker Mode</string>
+    <string name="dc_dimming_enable_summary">DC Dimming reduces eye strain in low light conditions (Note: reduce image quality and color production)</string>
 </resources>
