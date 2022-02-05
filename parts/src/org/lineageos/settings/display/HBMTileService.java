@@ -29,7 +29,7 @@ import org.lineageos.settings.utils.FileUtils;
 public class HBMTileService extends TileService {
 
     private static final String HBM_ENABLE_KEY = "hbm_mode";
-    private static final String HBM_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm";
+    private static final String HBM_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
 
     private void updateUI(boolean enabled) {
         final Tile tile = getQsTile();
