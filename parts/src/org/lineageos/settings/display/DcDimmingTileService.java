@@ -24,12 +24,13 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.preference.PreferenceManager;
 
+import org.lineageos.settings.display.DisplayNodes;
 import org.lineageos.settings.utils.FileUtils;
 
 public class DcDimmingTileService extends TileService {
 
-    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
-    private static final String DC_DIMMING_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable";
+    private String DC_DIMMING_ENABLE_KEY;
+    private String DC_DIMMING_NODE;
 
     private void updateUI(boolean enabled) {
         final Tile tile = getQsTile();
@@ -40,6 +41,8 @@ public class DcDimmingTileService extends TileService {
     @Override
     public void onStartListening() {
         super.onStartListening();
+        DC_DIMMING_ENABLE_KEY = DisplayNodes.getDcDimmingEnableKey();
+        DC_DIMMING_NODE = DisplayNodes.getDcDimmingNode();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         updateUI(sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false));
     }

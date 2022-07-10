@@ -24,20 +24,26 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
 import org.lineageos.settings.R;
+import org.lineageos.settings.display.DisplayNodes;
 import org.lineageos.settings.utils.FileUtils;
 
 public class DisplaySettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SwitchPreference mDcDimmingPreference;
-    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
-    private static final String DC_DIMMING_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable";
+    private String DC_DIMMING_ENABLE_KEY;
+    private String DC_DIMMING_NODE;
     private SwitchPreference mHBMPreference;
-    private static final String HBM_ENABLE_KEY = "hbm_mode";
-    private static final String HBM_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
+    private String HBM_ENABLE_KEY;
+    private String HBM_NODE;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        DC_DIMMING_ENABLE_KEY = DisplayNodes.getDcDimmingEnableKey();
+        DC_DIMMING_NODE = DisplayNodes.getDcDimmingNode();
+        HBM_ENABLE_KEY = DisplayNodes.getHbmEnableKey();
+        HBM_NODE = DisplayNodes.getHbmNode();
+
         addPreferencesFromResource(R.xml.display_settings);
         mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
         if (FileUtils.fileExists(DC_DIMMING_NODE)) {

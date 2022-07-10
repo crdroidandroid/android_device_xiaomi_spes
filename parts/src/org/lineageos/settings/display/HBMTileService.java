@@ -24,12 +24,13 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import androidx.preference.PreferenceManager;
 
+import org.lineageos.settings.display.DisplayNodes;
 import org.lineageos.settings.utils.FileUtils;
 
 public class HBMTileService extends TileService {
 
-    private static final String HBM_ENABLE_KEY = "hbm_mode";
-    private static final String HBM_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
+    private String HBM_ENABLE_KEY;
+    private String HBM_NODE;
 
     private void updateUI(boolean enabled) {
         final Tile tile = getQsTile();
@@ -40,6 +41,8 @@ public class HBMTileService extends TileService {
     @Override
     public void onStartListening() {
         super.onStartListening();
+        HBM_ENABLE_KEY = DisplayNodes.getHbmEnableKey();
+        HBM_NODE = DisplayNodes.getHbmNode();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         updateUI(sharedPrefs.getBoolean(HBM_ENABLE_KEY, false));
     }
