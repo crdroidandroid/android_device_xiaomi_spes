@@ -792,7 +792,7 @@
     <integer name="config_defaultRefreshRateInZone">90</integer>
 
     <!-- Indicates whether device has a power button fingerprint sensor. -->
-    <bool name="config_is_powerbutton_fps" translatable="false" >true</bool>
+    <bool name="config_is_powerbutton_fps" translatable="true" >true</bool>
 
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">90</integer>
