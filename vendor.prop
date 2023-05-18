@@ -181,6 +181,7 @@ vendor.display.secure_preview_buffer_format=420_sp
 vendor.display.use_smooth_motion=0
 vendor.gralloc.disable_ubwc=0
 vendor.gralloc.secure_preview_buffer_format=420_sp
+vendor.display.override_doze_mode=1
 
 # Media Codecs
 debug.stagefright.ccodec=1
