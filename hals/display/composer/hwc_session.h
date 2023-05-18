@@ -611,6 +611,7 @@ class HWCSession : hwc2_device_t, HWCUEventListener, public qClient::BnQClient,
   std::bitset<HWCCallbacks::kNumDisplays> display_ready_;
   bool secure_session_active_ = false;
   bool is_idle_time_up_ = false;
+  bool override_doze_mode_ = false;
 };
 }  // namespace sdm
 

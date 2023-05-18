@@ -224,6 +224,11 @@ int HWCSession::Init() {
   DLOGI("builtin_powermode_override: %d", async_powermode_);
 
   value = 0;
+  Debug::Get()->GetProperty(OVERRIDE_DOZE_MODE_PROP, &value);
+  override_doze_mode_ = (value == 1);
+  DLOGI("override_doze_mode: %d", override_doze_mode_);
+
+  value = 0;
   Debug::Get()->GetProperty(ENABLE_ASYNC_VDS_CREATION, &value);
   async_vds_creation_ = (value == 1);
   DLOGI("async_vds_creation: %d", async_vds_creation_);
@@ -1232,7 +1237,8 @@ int32_t HWCSession::GetDozeSupport(hwc2_display_t display, int32_t *out_support)
     return HWC2_ERROR_NONE;
   }
 
-  *out_support = hwc_display_[display]->HasSmartPanelConfig() ? 1 : 0;
+  *out_support = (override_doze_mode_ ||
+                  hwc_display_[display]->HasSmartPanelConfig()) ? 1 : 0;
 
   return HWC2_ERROR_NONE;
 }
