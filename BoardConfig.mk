@@ -147,7 +147,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 
 BOARD_KERNEL_CMDLINE += \
     androidboot.console=ttyMSM0 \
@@ -163,13 +162,10 @@ BOARD_KERNEL_CMDLINE += \
     swiotlb=2048 \
     kpti=off
 
-BOARD_KERNEL_CMDLINE += androidboot.fstab_suffix=qcom
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
-TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CONFIG := vendor/bengal_defconfig
-TARGET_KERNEL_HEADERS := kernel/xiaomi/spes
-TARGET_KERNEL_SOURCE := kernel/xiaomi/spes
+TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
+TARGET_KERNEL_HEADERS := kernel/xiaomi/sm6225
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6225
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
