@@ -1,7 +1,8 @@
 [
   {
-    "repository": "crdroidandroid/android_hardware_xiaomi",
-    "target_path": "hardware/xiaomi"
+    "repository": "LineageOS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "lineage-20"
   },
   {
     "repository": "crdroidandroid/header_kernel_xiaomi_spes",
