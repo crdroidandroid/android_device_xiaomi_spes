@@ -1,0 +1,19 @@
+[
+  {
+    "repository": "crdroidandroid/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "crdroidandroid/header_kernel_xiaomi_spes",
+    "target_path": "kernel/xiaomi/spes"
+  },
+  {
+    "repository": "crdroidandroid/android_vendor_xiaomi_spes",
+    "target_path": "vendor/xiaomi/spes"
+  },
+  {
+    "repository": "crdroidandroid/android-vendor-gapps-spes",
+    "target_path": "vendor/gapps",
+    "remote": "crdroid-gitlab"
+  }
+]
