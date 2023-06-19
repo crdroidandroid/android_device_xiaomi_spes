@@ -21,6 +21,7 @@ ro.vendor.audio.surround.support=flase
 ro.vendor.audio.us.proximity=true
 ro.vendor.audio.vocal.support=flase
 ro.vendor.audio.voice.change.support=true
+ro.vendor.audio.voice.change.version=2
 vendor.audio.adm.buffering.ms=2
 vendor.audio.chk.cal.us=0
 vendor.audio.feature.a2dp_offload.enable=true
@@ -64,6 +65,7 @@ vendor.audio.volume.headset.gain.depcal=true
 vendor.audio_hal.in_period_size=144
 vendor.audio_hal.period_multiplier=3
 vendor.audio_hal.period_size=192
+vendor.display.defer_fps_frame_count=2
 vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
@@ -103,6 +105,7 @@ vendor.display.svi.config_path=/vendor/etc/SVIConfig.xml
 persist.vendor.audio_fx.current=dolby
 vendor.audio.dolby.ds2.enabled=true
 vendor.audio.dolby.ds2.hardbypass=true
+ro.vendor.audio.dolby.dax.support=true
 ro.vendor.dolby.dax.version=DAX3_3.6.0.12_r1
 
 # DPM
@@ -127,9 +130,9 @@ debug.sf.high_fps_late_sf_phase_offset_ns=-5000000
 debug.sf.predict_hwc_composition_strategy=0
 debug.sf.treat_170m_as_sRGB=1
 persist.metadata_dynfps.disable=true
-persist.sys.sf.color_mode=7
+persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
-persist.sys.sf.native_mode=0
+persist.sys.sf.native_mode=1
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
@@ -192,6 +195,8 @@ ro.vendor.extension_library=libqti-perfd-client.so
 
 # Radio
 persist.radio.multisim.config=dsds
+persist.sys.cnss_diag.enable=false
+persist.sys.tcpdump.enable=false
 persist.vendor.data.iwlan.enable=true
 persist.vendor.radio.add_power_save=1
 persist.vendor.radio.apm_sim_not_pwdn=1
@@ -264,6 +269,7 @@ wifi.aware.interface=wifi-aware0
 
 # WLAN
 persist.vendor.sys.cnd.iwlan=1
+ro.hardware.wlan.dbs=0
 ro.telephony.iwlan_operation_mode=legacy
 
 # SoC
