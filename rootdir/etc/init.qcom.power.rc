@@ -152,5 +152,5 @@ on init
     write /dev/stune/camera-daemon/schedtune.boost 0
 
     # report max frequency to unity tasks.
-    write /proc/sys/kernel/sched_lib_name "com.miHoYo.,libunity.so,libfb.so"
+    write /proc/sys/kernel/sched_lib_name "com.miHoYo., com.activision., com.epicgames, com.dts., UnityMain, libunity.so, libil2cpp.so, libmain.so, libcri_vip_unity.so, libopus.so, libxlua.so, libUE4.so, libAsphalt9.so, libnative-lib.so, libRiotGamesApi.so, libResources.so, libagame.so, libapp.so, libflutter.so, libMSDKCore.so, libFIFAMobileNeon.so, libUnreal.so, libEOSSDK.so, libcocos2dcpp.so, libfb.so""
     write /proc/sys/kernel/sched_lib_mask_force 255
