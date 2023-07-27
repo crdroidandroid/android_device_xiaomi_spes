@@ -1,0 +1,21 @@
+[
+  {
+    "repository": "LineageOS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "lineage-20"
+  },
+  {
+    "repository": "ap4ss3rby/kernel_xiaomi_spes_header",
+    "target_path": "kernel/xiaomi/spes"
+  },
+  {
+    "repository": "Jabiyeff/android_vendor_gapps",
+    "target_path": "vendor/gapps",
+    "remote": "crdroid-gitlab"
+  },
+  {
+    "repository": "ap4ss3rby/android_vendor_xiaomi_spes",
+    "target_path": "vendor/xiaomi/spes",
+    "remote": "github"
+  }
+]
