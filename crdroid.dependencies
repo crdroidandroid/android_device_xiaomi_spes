@@ -13,7 +13,7 @@
     "target_path": "vendor/xiaomi/spes"
   },
   {
-    "repository": "crdroidandroid/android-vendor-gapps-spes",
+    "repository": "crdroidandroid/android_vendor_gapps-spes",
     "target_path": "vendor/gapps",
     "remote": "crdroid-gitlab"
   }

@@ -50,58 +50,6 @@ function configure_read_ahead_kb_values() {
     fi
 }
 
-function configure_memory_parameters() {
-    # Set Memory parameters.
-    #
-    # Set per_process_reclaim tuning parameters
-    # All targets will use vmpressure range 50-70,
-    # All targets will use 512 pages swap size.
-    #
-    # Set Low memory killer minfree parameters
-    # 32 bit Non-Go, all memory configurations will use 15K series
-    # 32 bit Go, all memory configurations will use uLMK + Memcg
-    # 64 bit will use Google default LMK series.
-    #
-    # Set ALMK parameters (usually above the highest minfree values)
-    # vmpressure_file_min threshold is always set slightly higher
-    # than LMK minfree's last bin value for all targets. It is calculated as
-    # vmpressure_file_min = (last bin - second last bin ) + last bin
-    #
-    # Set allocstall_threshold to 0 for all targets.
-    #
-
-low_ram=`getprop ro.config.low_ram`
-
-configure_read_ahead_kb_values
-
-# Set parameters for 32-bit Go targets.
-if [ "$low_ram" == "true" ]; then
-    if [ -f /proc/sys/vm/reap_mem_on_sigkill ]; then
-        echo 1 > /proc/sys/vm/reap_mem_on_sigkill
-    fi
-else
-    #Set PPR nomap parameters for bengal targets
-    echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-    echo 50 > /sys/module/process_reclaim/parameters/pressure_min
-    echo 70 > /sys/module/process_reclaim/parameters/pressure_max
-    echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
-    echo 0 > /sys/module/process_reclaim/parameters/per_swap_size
-    echo 7680 > /sys/module/process_reclaim/parameters/tsk_nomap_swap_sz
-
-    # Disable wsf for all targets beacause we are using efk.
-    # wsf Range : 1..1000 So set to bare minimum value 1.
-    echo 1 > /proc/sys/vm/watermark_scale_factor
-
-    # Disable the feature of watermark boost
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    if [ $MemTotal -le 6291456 ]; then
-        echo 0 > /proc/sys/vm/watermark_boost_factor
-    fi
-fi
-}
-
 # Apply Settings for bengal
 # fix ECC Crash
 echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
@@ -159,9 +107,6 @@ echo -6 >  /sys/devices/system/cpu/cpu6/sched_load_boost
 echo -6 >  /sys/devices/system/cpu/cpu7/sched_load_boost
 echo 85 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load
 echo 85 > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load
-
-# Set Memory parameters
-configure_memory_parameters
 
 # Enable bus-dcvs
 for device in /sys/devices/platform/soc

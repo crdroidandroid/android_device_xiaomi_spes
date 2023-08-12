@@ -591,6 +591,9 @@
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
 
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">true</bool>
+
     <!-- Whether the always on display mode is available. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
@@ -792,7 +795,7 @@
     <integer name="config_defaultRefreshRateInZone">90</integer>
 
     <!-- Indicates whether device has a power button fingerprint sensor. -->
-    <bool name="config_is_powerbutton_fps" translatable="false" >true</bool>
+    <bool name="config_is_powerbutton_fps" translatable="true" >true</bool>
 
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">90</integer>
@@ -873,34 +876,6 @@
         <item>7</item> <!-- COLOR_MODE_SRGB -->
       </integer-array>
 
-    <!-- The default journal mode to use use when Write-Ahead Logging is not active.
-         Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
-         PERSIST may improve performance by reducing how often journal blocks are
-         reallocated (compared to truncation) resulting in better data block locality
-         and less churn of the storage media.
-         The PERSIST mode results in data persisting in the journal beyond the life of
-         a transaction, so it interacts poorly with SECURE_DELETE. -->
-    <string name="db_default_journal_mode">MEMORY</string>
-
-    <!-- The database synchronization mode when using the default journal mode.
-         FULL is safest and preserves durability at the cost of extra fsyncs.
-         NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
-         integrity although there is a small chance that an error might go unnoticed.
-         Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_default_sync_mode">OFF</string>
-
-    <!-- The database synchronization mode when using Write-Ahead Logging.
-         From https://www.sqlite.org/pragma.html#pragma_synchronous:
-         WAL mode is safe from corruption with synchronous=NORMAL, and probably DELETE mode is safe
-         too on modern filesystems. WAL mode is always consistent with synchronous=NORMAL, but WAL
-         mode does lose durability. A transaction committed in WAL mode with
-         synchronous=NORMAL might roll back following a power loss or system crash.
-         Transactions are durable across application crashes regardless of the synchronous setting
-         or journal mode. The synchronous=NORMAL setting is a good choice for most applications
-         running in WAL mode.
-         Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_wal_sync_mode">OFF</string>
-
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
@@ -918,4 +893,10 @@
 
     <!-- Whether or not wcg mode should be enabled on this device -->
     <bool name="config_enableWcgMode">true</bool>
+
+    <!-- Flag indicating whether the surface flinger has limited
+         alpha compositing functionality in hardware.  If set, the window
+         manager will disable alpha trasformation in animations where not
+         strictly needed. -->
+    <bool name="config_sf_limitedAlpha">true</bool>
 </resources>
