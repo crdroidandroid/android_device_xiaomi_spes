@@ -5,8 +5,8 @@
     "branch": "lineage-20"
   },
   {
-    "repository": "crdroidandroid/header_kernel_xiaomi_spes",
-    "target_path": "kernel/xiaomi/spes"
+    "repository": "crdroidandroid/android_kernel_sm6225",
+    "target_path": "kernel/xiaomi/sm6225"
   },
   {
     "repository": "crdroidandroid/android_vendor_xiaomi_spes",
