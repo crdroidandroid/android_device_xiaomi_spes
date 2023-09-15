@@ -25,3 +25,5 @@ type proc_tp_gesture, fs_type, proc_type;
 type thermal_data_file, file_type, data_file_type;
 
 type vendor_sysfs_iio, fs_type, sysfs_type;
+
+type sysfs_touchpanel, fs_type, sysfs_type;

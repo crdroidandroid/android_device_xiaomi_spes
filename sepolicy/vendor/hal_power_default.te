@@ -1,13 +1,12 @@
 # Allow hal_power_default to write to dt2w nodes
-allow hal_power_default input_device:dir r_dir_perms;
-allow hal_power_default input_device:chr_file rw_file_perms;
+allow hal_power_default sysfs_touchpanel:dir search;
 
 r_dir_file(hal_power_default, input_device)
 
 allow hal_power_default {
   vendor_sysfs_devfreq
   sysfs_msm_subsys
-  proc_tp_gesture
+  sysfs_touchpanel
 }:dir search;
 
 allow hal_power_default {
@@ -19,7 +18,7 @@ allow hal_power_default {
   vendor_sysfs_kgsl
   sysfs_msm_subsys
   vendor_sysfs_scsi_host
-  proc_tp_gesture
+  sysfs_touchpanel
 }:{
   file
   lnk_file
