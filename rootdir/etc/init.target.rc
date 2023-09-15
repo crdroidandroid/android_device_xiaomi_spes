@@ -138,8 +138,8 @@ on boot
     write /sys/module/cpu_boost/parameters/input_boost_ms 120
 
     # DT2W
-    chown system system /proc/tp_gesture
-    chmod 0664 /proc/tp_gesture
+    chown system system /sys/touchpanel/double_tap
+    chmod 0660 /sys/touchpanel/double_tap
 
     # USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
