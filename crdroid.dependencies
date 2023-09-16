@@ -5,7 +5,7 @@
     "branch": "lineage-20"
   },
   {
-    "repository": "crdroidandroid/android_kernel_sm6225",
+    "repository": "crdroidandroid/android_kernel_xiaomi_sm6225",
     "target_path": "kernel/xiaomi/sm6225"
   },
   {
@@ -16,5 +16,11 @@
     "repository": "crdroidandroid/android-vendor-gapps-spes",
     "target_path": "vendor/gapps",
     "remote": "crdroid-gitlab"
+  },
+  {
+    "repository": "crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-6443078",
+    "target_path": "prebuilts/clang/host/linux-x86/clang-r383902",
+    "remote": "github",
+    "branch": "10.0"
   }
 ]
