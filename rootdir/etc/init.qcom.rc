@@ -158,8 +158,8 @@ on boot
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
     # Allow system to modify exposure adjustment state
-    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
-    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display/msm_fb_ea_enable
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable
 
     # High Brightness mode
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm
