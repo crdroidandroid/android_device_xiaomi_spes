@@ -111,8 +111,6 @@ on boot
     chmod 0664 /sys/class/drm/card0-DSI-1/mipi_reg
     chown system system /sys/class/drm/card0-DSI-1/panel_info
     chmod 0444 /sys/class/drm/card0-DSI-1/panel_info
-    chown system system /sys/class/drm/card0-DSI-1/doze_brightness
-    chown system system /sys/class/drm/card0-DSI-1/doze_backlight
 
     # Fingerprint
     chown system system /sys/bus/platform/devices/soc:fpc1020/irq
