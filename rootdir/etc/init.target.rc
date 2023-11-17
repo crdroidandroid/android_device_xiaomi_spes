@@ -100,10 +100,6 @@ on post-fs-data
     chown system system /sys/class/power_supply/battery/battery_charging_enabled
     chown system system /sys/class/power_supply/usb/typec_cc_orientation
 
-    # Dolby
-    mkdir /data/vendor/dolby 0770 media media
-    mkdir /data/vendor/multimedia 0775 system system
-
 on boot
     #touch funtions permissions setting
     chown system system /sys/class/touch/touch_dev/palm_sensor
