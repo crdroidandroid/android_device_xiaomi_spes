@@ -100,10 +100,6 @@ on boot
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
-    # Flashlight
-    chmod 0660 /sys/class/leds/led:torch/brightness
-    chown system system /sys/class/leds/led:torch/brightness
-
     # ANT
     chmod 0777 /sys/class/ant_class/ant_state
     chmod 0777 /sys/class/ant_div_class/ant_div_state
