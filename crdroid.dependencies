@@ -2,7 +2,7 @@
   {
     "repository": "LineageOS/android_hardware_xiaomi",
     "target_path": "hardware/xiaomi",
-    "branch": "lineage-20"
+    "branch": "lineage-21"
   },
   {
     "repository": "crdroidandroid/android_kernel_xiaomi_sm6225",
@@ -11,10 +11,5 @@
   {
     "repository": "crdroidandroid/android_vendor_xiaomi_spes",
     "target_path": "vendor/xiaomi/spes"
-  },
-  {
-    "repository": "crdroidandroid/android-vendor-gapps-spes",
-    "target_path": "vendor/gapps",
-    "remote": "crdroid-gitlab"
   }
 ]
