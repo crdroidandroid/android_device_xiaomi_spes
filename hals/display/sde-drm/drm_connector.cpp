@@ -519,7 +519,7 @@ void DRMConnector::ParseCapabilities(uint64_t blob_id, DRMConnectorInfo *info) {
     if (line.find(pixel_formats) != string::npos) {
       vector<pair<uint32_t, uint64_t>> formats_supported;
       ParseFormats(line.erase(0, pixel_formats.length()), &formats_supported);
-      info->formats_supported = move(formats_supported);
+      info->formats_supported = std::move(formats_supported);
     } else if (line.find(max_linewidth) != string::npos) {
       info->max_linewidth = std::stoi(string(line, max_linewidth.length()));
     } else if (line.find(display_type) != string::npos) {
