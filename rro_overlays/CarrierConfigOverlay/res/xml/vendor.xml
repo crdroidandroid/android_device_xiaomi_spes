@@ -575,7 +575,15 @@
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="404" mnc="04">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="404" mnc="05">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="404" mnc="07">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
@@ -587,7 +595,7 @@
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
-    <carrier_config mcc="404" mnc="13">
+    <carrier_config mcc="404" mnc="14">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
@@ -603,7 +611,7 @@
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
-    <carrier_config mcc="404" mnc="27">
+    <carrier_config mcc="404" mnc="22">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
@@ -653,6 +661,10 @@
     <carrier_config mcc="404" mnc="55">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="404" mnc="56">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="404" mnc="57">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
@@ -699,6 +711,10 @@
     </carrier_config>
     <carrier_config mcc="404" mnc="77">
         <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="404" mnc="78">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="404" mnc="79">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -753,15 +769,11 @@
     <carrier_config mcc="404" mnc="81">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
-    <carrier_config mcc="404" mnc="84">
+    <carrier_config mcc="404" mnc="82">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="404" mnc="86">
-        <boolean name="carrier_volte_available_bool" value="true" />
-        <boolean name="carrier_wfc_ims_available_bool" value="true" />
-    </carrier_config>
-    <carrier_config mcc="404" mnc="88">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
