@@ -25,7 +25,7 @@ static const variant_info_t spes_info = {
 
 static const variant_info_t spes_in_info = {
     .hwc_value = "India",
-    .sku_value = "",
+    .sku_value = "k7tin",
 
     .brand = "Redmi",
     .device = "spes",
