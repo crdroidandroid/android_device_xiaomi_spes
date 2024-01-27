@@ -25,6 +25,10 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ *
  */
 #define LOG_TAG "soundtrigger"
 /* #define LOG_NDEBUG 0 */
@@ -226,8 +230,9 @@ static void get_library_path(char *lib_path)
 static void get_library_path(char *lib_path)
 {
     snprintf(lib_path, MAX_LIBRARY_PATH,
-             "/vendor/lib/hw/sound_trigger.primary.%s.so",
+             SOUND_TRIGGER_LIBRARY_PATH,
              XSTR(SOUND_TRIGGER_PLATFORM_NAME));
+
 }
 #endif
 
@@ -814,6 +819,7 @@ int audio_extn_sound_trigger_init(struct audio_device *adev)
     }
 
     get_library_path(sound_trigger_lib);
+    ALOGV("%s: dlopen sound_trigger_lib path : %s\n", __func__, sound_trigger_lib);
     st_dev->lib_handle = dlopen(sound_trigger_lib, RTLD_NOW);
 
     if (st_dev->lib_handle == NULL) {
@@ -870,13 +876,32 @@ cleanup:
 
 }
 
+int clear_device_list(struct listnode *devices)
+{
+     struct listnode *node = NULL, *temp = NULL;
+     struct sound_trigger_info *item = NULL;
+
+     if (devices == NULL)
+         return 0;
+
+     list_for_each_safe (node, temp, devices) {
+         item = node_to_item(node, struct sound_trigger_info, list);
+         if (item != NULL) {
+             list_remove(&item->list);
+             free(item);
+        }
+     }
+
+     return 0;
+}
+
 void audio_extn_sound_trigger_deinit(struct audio_device *adev)
 {
     ALOGI("%s: Enter", __func__);
     if (st_dev && (st_dev->adev == adev) && st_dev->lib_handle) {
         audio_extn_snd_mon_unregister_listener(st_dev);
         dlclose(st_dev->lib_handle);
-        clear_devices(&st_dev->st_ses_list);
+        clear_device_list(&st_dev->st_ses_list);
         free(st_dev);
         st_dev = NULL;
     }

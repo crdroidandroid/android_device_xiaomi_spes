@@ -33,6 +33,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ *
  */
 
 #ifndef AUDIO_EXTN_H
@@ -624,7 +629,7 @@ enum {
 };
 
 // START: MST ==================================================
-#define MAX_CONTROLLERS 1
+#define MAX_CONTROLLERS 2
 #define MAX_STREAMS_PER_CONTROLLER 2
 // END: MST ==================================================
 
@@ -1270,11 +1275,19 @@ static int __unused audio_extn_hw_loopback_set_audio_port_config(struct audio_hw
 {
     return 0;
 }
+#ifdef ANDROID_U_HAL7
+static int __unused audio_extn_hw_loopback_get_audio_port_v7(struct audio_hw_device *dev __unused,
+                                    struct audio_port_v7 *port_in __unused)
+{
+    return 0;
+}
+#else
 static int __unused audio_extn_hw_loopback_get_audio_port(struct audio_hw_device *dev __unused,
                                     struct audio_port *port_in __unused)
 {
     return 0;
 }
+#endif
 static int __unused audio_extn_hw_loopback_set_param_data(audio_patch_handle_t handle __unused,
                                                audio_extn_loopback_param_id param_id __unused,
                                                audio_extn_loopback_param_payload *payload __unused)
@@ -1388,8 +1401,13 @@ int audio_extn_auto_hal_open_input_stream(struct stream_in *in);
 int audio_extn_auto_hal_open_echo_reference_stream(struct stream_in *in);
 bool audio_extn_auto_hal_overwrite_priority_for_auto(struct stream_in *in);
 bool audio_extn_auto_hal_is_bus_device_usecase(audio_usecase_t uc_id);
+#ifdef ANDROID_U_HAL7
+int audio_extn_auto_hal_get_audio_port_v7(struct audio_hw_device *dev,
+                                struct audio_port_v7 *config);
+#else
 int audio_extn_auto_hal_get_audio_port(struct audio_hw_device *dev,
                                 struct audio_port *config);
+#endif
 int audio_extn_auto_hal_set_audio_port_config(struct audio_hw_device *dev,
                                 const struct audio_port_config *config);
 void audio_extn_auto_hal_set_parameters(struct audio_device *adev,
@@ -1482,4 +1500,5 @@ snd_device_t audio_extn_get_loopback_snd_device(struct audio_device *adev,
 
 void audio_get_vendor_config_path(char* config_file_path, int path_size);
 bool audio_extn_is_concurrent_pcm_record_enabled();
+bool audio_extn_is_concurrent_low_latency_pcm_record_enabled();
 #endif /* AUDIO_EXTN_H */

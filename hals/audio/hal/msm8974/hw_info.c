@@ -1,6 +1,10 @@
 /*
  * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ * Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
  * met:
@@ -629,6 +633,9 @@ static void update_hardware_info_lahaina(
     } else if (!strncmp(snd_card_name, "lahaina-yupikidp-snd-card",
                  sizeof("lahaina-yupikidp-snd-card"))) {
         strlcpy(hw_info->name, "yupik", sizeof(hw_info->name));
+    } else if (!strncmp(snd_card_name, "lahaina-yupikidprb3-snd-card",
+                 sizeof("lahaina-yupikidprb3-snd-card"))) {
+        strlcpy(hw_info->name, "yupik", sizeof(hw_info->name));
     } else if (!strncmp(snd_card_name, "lahaina-yupikqrd-snd-card",
                  sizeof("lahaina-yupikqrd-snd-card"))) {
         strlcpy(hw_info->name, "yupik", sizeof(hw_info->name));
@@ -787,6 +794,9 @@ static void update_hardware_info_bear(struct hardware_info *hw_info, const char 
         strlcpy(hw_info->dev_extn, "-hdk", sizeof(hw_info->dev_extn));
     } else if (!strncmp(snd_card_name, "sm6150-idp-snd-card",
                  sizeof("sm6150-idp-snd-card"))) {
+        strlcpy(hw_info->name, "sm6150", sizeof(hw_info->name));
+    } else if (!strncmp(snd_card_name, "sm6150-ipc-snd-card",
+                 sizeof("sm6150-ipc-snd-card"))) {
         strlcpy(hw_info->name, "sm6150", sizeof(hw_info->name));
     } else if (!strncmp(snd_card_name, "sm6150-wcd9375-snd-card",
                  sizeof("sm6150-wcd9375-snd-card"))) {
@@ -1001,7 +1011,7 @@ void hw_info_deinit(void *hw_info)
 {
     struct hardware_info *my_data = (struct hardware_info*) hw_info;
 
-    if(!my_data)
+    if (my_data)
         free(my_data);
 }
 

@@ -3,6 +3,12 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifneq ( ,$(filter U UpsideDownCake 14, $(PLATFORM_VERSION)))
+ifeq ($(TARGET_ARCH), arm64)
+LOCAL_CFLAGS := -DLIB64_AUDIO_HAL="/vendor/lib64/hw/audio.primary."$(TARGET_BOARD_PLATFORM)".so"
+endif
+endif
+
 LOCAL_CFLAGS := -DLIB_AUDIO_HAL="/vendor/lib/hw/audio.primary."$(TARGET_BOARD_PLATFORM)".so"
 LOCAL_CFLAGS += -Wno-unused-variable
 LOCAL_CFLAGS += -Wno-sign-compare
@@ -74,7 +80,7 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE_RELATIVE_PATH := soundfx
-LOCAL_MODULE := libqcompostprocbundle
+LOCAL_MODULE:= libqcompostprocbundle
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_OWNER := qti
 
@@ -153,7 +159,7 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DTS_EAGLE)), true)
 LOCAL_CFLAGS += -DHW_ACC_HPX
 endif
 
-LOCAL_MODULE := libhwacceffectswrapper
+LOCAL_MODULE:= libhwacceffectswrapper
 LOCAL_VENDOR_MODULE := true
 
 ifneq ($(filter kona lahaina holi,$(TARGET_BOARD_PLATFORM)),)
@@ -166,9 +172,15 @@ endif
 
 ################################################################################
 
-ifneq ($(filter msm8992 msm8994 msm8996 msm8998 sdm660 sdm845 apq8098_latv sdm710 msm8953 msm8937 qcs605 sdmshrike msmnile kona bengal lahaina holi atoll $(MSMSTEPPE) $(TRINKET) lito,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter msm8992 msm8994 msm8996 msm8998 sdm660 sdm845 apq8098_latv sdm710 msm8953 msm8937 qcs605 sdmshrike msmnile kona lahaina holi atoll $(MSMSTEPPE) $(TRINKET) lito,$(TARGET_BOARD_PLATFORM)),)
 
 include $(CLEAR_VARS)
+
+ifneq ( ,$(filter U UpsideDownCake 14, $(PLATFORM_VERSION)))
+ifeq ($(TARGET_ARCH), arm64)
+LOCAL_CFLAGS := -DLIB64_AUDIO_HAL="/vendor/lib64/hw/audio.primary."$(TARGET_BOARD_PLATFORM)".so"
+endif
+endif
 
 LOCAL_CFLAGS := -DLIB_AUDIO_HAL="/vendor/lib/hw/audio.primary."$(TARGET_BOARD_PLATFORM)".so"
 LOCAL_CFLAGS += -Wno-unused-variable
@@ -201,7 +213,7 @@ LOCAL_SHARED_LIBRARIES := \
         libaudioutils
 
 LOCAL_MODULE_RELATIVE_PATH := soundfx
-LOCAL_MODULE := libvolumelistener
+LOCAL_MODULE:= libvolumelistener
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_OWNER := qti
 
@@ -220,8 +232,8 @@ ifneq ($(BOARD_OPENSOURCE_DIR), )
   LOCAL_C_INCLUDES += $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal \
                       $(BOARD_OPENSOURCE_DIR)/audio-hal/primary-hal/hal/audio_extn
 else
-  LOCAL_C_INCLUDES += $(TARGET_HALS_PATH)audio \
-                      $(TARGET_HALS_PATH)audio/audio_extn
+  LOCAL_C_INCLUDES += $(TARGET_HALS_PATH)/audio \
+                      $(TARGET_HALS_PATH)/audio/audio_extn
 endif # BOARD_OPENSOURCE_DIR
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
@@ -263,7 +275,7 @@ LOCAL_SHARED_LIBRARIES := \
     libdl
 
 LOCAL_MODULE_RELATIVE_PATH := soundfx
-LOCAL_MODULE := libmalistener
+LOCAL_MODULE:= libmalistener
 LOCAL_MODULE_OWNER := google
 LOCAL_PROPRIETARY_MODULE := true
 

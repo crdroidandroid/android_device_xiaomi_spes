@@ -15,6 +15,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Changes from Qualcomm Innovation Center are provided under the following license:
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
 #define LOG_TAG "audio_hw_utils"
@@ -943,10 +947,6 @@ void audio_extn_utils_update_stream_app_type_cfg_for_usecase(
         ALOGV("%s Selected apptype: %d", __func__, usecase->stream.out->app_type_cfg.app_type);
         break;
     case PCM_CAPTURE:
-        if (usecase->id == USECASE_AUDIO_RECORD_VOIP
-                              || usecase->id == USECASE_AUDIO_RECORD_VOIP_LOW_LATENCY)
-            usecase->stream.in->app_type_cfg.app_type = APP_TYPE_VOIP_AUDIO;
-        else
             audio_extn_utils_update_stream_input_app_type_cfg(adev->platform,
                                                 &adev->streams_input_cfg_list,
                                                 &usecase->stream.in->device_list,
@@ -1050,7 +1050,8 @@ static int set_stream_app_type_mixer_ctrl(struct audio_device *adev,
 
     char mixer_ctl_name[MAX_LENGTH_MIXER_CONTROL_IN_INT];
     struct mixer_ctl *ctl;
-    int app_type_cfg[MAX_LENGTH_MIXER_CONTROL_IN_INT], len = 0, rc = 0;
+    size_t app_type_cfg[MAX_LENGTH_MIXER_CONTROL_IN_INT] = {0};
+    int len = 0, rc = 0;
     int snd_device_be_idx = -1;
 
     if (stream_type == PCM_PLAYBACK) {
@@ -1368,7 +1369,9 @@ int audio_extn_utils_get_app_sample_rate_for_device(
             (compare_device_type(&usecase->stream.out->device_list,AUDIO_DEVICE_OUT_SPEAKER))) {
                 if (!((compare_device_type(&usecase->device_list, AUDIO_DEVICE_OUT_BUS)) && ((usecase->stream.out->flags &
                     (audio_output_flags_t)AUDIO_OUTPUT_FLAG_SYS_NOTIFICATION) || (usecase->stream.out->flags &
-                    (audio_output_flags_t)AUDIO_OUTPUT_FLAG_PHONE)))) {
+                    (audio_output_flags_t)AUDIO_OUTPUT_FLAG_PHONE) || (usecase->stream.out->flags &
+                    (audio_output_flags_t)AUDIO_OUTPUT_FLAG_NAV_GUIDANCE) || (usecase->stream.out->flags &
+                    (audio_output_flags_t)AUDIO_OUTPUT_FLAG_ALERTS)))) {
                     /* Reset to default if no native stream is active or default device is speaker*/
                     usecase->stream.out->app_type_cfg.sample_rate = DEFAULT_OUTPUT_SAMPLING_RATE;
                 }
@@ -2528,6 +2531,7 @@ int audio_extn_utils_compress_get_dsp_latency(struct stream_out *out)
         }
 
         metadata.key = SNDRV_COMPRESS_PATH_DELAY;
+        ret = compress_get_metadata(out->compr, &metadata);
         if(ret) {
             ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
             goto exit;
@@ -2576,6 +2580,7 @@ int audio_extn_utils_compress_set_render_mode(struct stream_out *out)
         ret = 0;
         goto exit;
     }
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
     }
@@ -2641,6 +2646,7 @@ int audio_extn_utils_compress_set_clk_rec_mode(
 
     ALOGD("%s:: clk recovery mode %d",__func__, metadata.value[0]);
 
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
     }
@@ -2702,6 +2708,7 @@ int audio_extn_utils_compress_set_render_window(
     metadata.value[3] = \
             (0xFFFFFFFF00000000 & render_window->render_we) >> 32; /* msb*/
 
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
     }
@@ -2758,6 +2765,7 @@ int audio_extn_utils_compress_set_start_delay(
     metadata.value[1] = \
             (0xFFFFFFFF00000000 & delay_param->start_delay) >> 32; /* msb*/
 
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
     }
@@ -2787,6 +2795,7 @@ int audio_extn_utils_compress_get_dsp_presentation_pos(struct stream_out *out,
     ALOGV("%s:: Quering DSP position with clock id %d",__func__, clock_id);
     metadata.key = SNDRV_COMPRESS_DSP_POSITION;
     metadata.value[0] = clock_id;
+    ret = compress_get_metadata(out->compr, &metadata);
     if (ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
         ret = -errno;
@@ -3030,6 +3039,7 @@ int audio_extn_utils_compress_enable_drift_correction(
     metadata.value[0] = drift->enable;
     out->drift_correction_enabled = drift->enable;
 
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret) {
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
         out->drift_correction_enabled = false;
@@ -3084,6 +3094,7 @@ int audio_extn_utils_compress_correct_drift(
     metadata.value[1] = \
              (0xFFFFFFFF00000000 & drift_param->adjust_time) >> 32; /* msb*/
 
+    ret = compress_set_metadata(out->compr, &metadata);
     if(ret)
         ALOGE("%s::error %s", __func__, compress_get_error(out->compr));
 exit:

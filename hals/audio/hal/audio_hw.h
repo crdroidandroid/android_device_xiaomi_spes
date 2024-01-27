@@ -36,7 +36,7 @@
 
  *  Changes from Qualcomm Innovation Center are provided under the following license:
 
- * Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted (subject to the limitations in the
@@ -121,9 +121,15 @@ typedef struct {
 #define ADM_LIBRARY_PATH "/usr/lib/libadm.so"
 #endif
 #else
+#if defined(__LP64__)
+#define VISUALIZER_LIBRARY_PATH "/vendor/lib64/soundfx/libqcomvisualizer.so"
+#define OFFLOAD_EFFECTS_BUNDLE_LIBRARY_PATH "/vendor/lib64/soundfx/libqcompostprocbundle.so"
+#define ADM_LIBRARY_PATH "/vendor/lib64/libadm.so"
+#else
 #define VISUALIZER_LIBRARY_PATH "/vendor/lib/soundfx/libqcomvisualizer.so"
 #define OFFLOAD_EFFECTS_BUNDLE_LIBRARY_PATH "/vendor/lib/soundfx/libqcompostprocbundle.so"
 #define ADM_LIBRARY_PATH "/vendor/lib/libadm.so"
+#endif
 #endif
 
 /* Flags used to initialize acdb_settings variable that goes to ACDB library */
@@ -244,6 +250,7 @@ enum {
     USECASE_AUDIO_RECORD_COMPRESS5,
     USECASE_AUDIO_RECORD_COMPRESS6,
     USECASE_AUDIO_RECORD_LOW_LATENCY,
+    USECASE_AUDIO_RECORD_LOW_LATENCY2,
     USECASE_AUDIO_RECORD_FM_VIRTUAL,
     USECASE_AUDIO_RECORD_HIFI,
 
@@ -300,10 +307,14 @@ enum {
 
     /* car streams usecases */
     USECASE_AUDIO_PLAYBACK_MEDIA,
+    USECASE_AUDIO_PLAYBACK_MEDIA_LL,
     USECASE_AUDIO_PLAYBACK_SYS_NOTIFICATION,
     USECASE_AUDIO_PLAYBACK_NAV_GUIDANCE,
+    USECASE_AUDIO_PLAYBACK_NAV_GUIDANCE_LL,
     USECASE_AUDIO_PLAYBACK_PHONE,
+    USECASE_AUDIO_PLAYBACK_PHONE_LL,
     USECASE_AUDIO_PLAYBACK_ALERTS,
+    USECASE_AUDIO_PLAYBACK_ALERTS_LL,
     USECASE_AUDIO_PLAYBACK_FRONT_PASSENGER,
     USECASE_AUDIO_PLAYBACK_REAR_SEAT,
     USECASE_AUDIO_RECORD_BUS,
@@ -767,6 +778,7 @@ struct audio_device {
     void *extspk;
     unsigned int offload_usecases_state;
     unsigned int pcm_record_uc_state;
+    unsigned int pcm_low_latency_record_uc_state;
     void *visualizer_lib;
     int (*visualizer_start_output)(audio_io_handle_t, int);
     int (*visualizer_stop_output)(audio_io_handle_t, int);
@@ -837,6 +849,8 @@ struct audio_device {
     Hashmap *io_streams_map;
     bool a2dp_started;
     bool ha_proxy_enable;
+    int ext_controller;
+    int ext_stream;
 
     amplifier_device_t *amp;
 };
@@ -949,5 +963,30 @@ audio_patch_handle_t generate_patch_handle();
  * stream_in or stream_out mutex first, followed by the audio_device mutex
  * and latch at last.
  */
+
+static inline audio_format_t pcm_format_to_audio_format(const enum pcm_format format)
+{
+   audio_format_t ret = AUDIO_FORMAT_INVALID;
+   switch(format) {
+        case PCM_FORMAT_S16_LE:
+            ret = (audio_format_t)AUDIO_FORMAT_PCM_SUB_16_BIT;
+            break;
+        case PCM_FORMAT_S32_LE:
+           ret = (audio_format_t)AUDIO_FORMAT_PCM_SUB_32_BIT;
+           break;
+        case PCM_FORMAT_S8:
+           ret = (audio_format_t)AUDIO_FORMAT_PCM_SUB_8_BIT;
+           break;
+        case PCM_FORMAT_S24_LE:
+           ret = (audio_format_t)AUDIO_FORMAT_PCM_SUB_8_24_BIT;
+           break;
+        case PCM_FORMAT_S24_3LE:
+           ret = (audio_format_t)AUDIO_FORMAT_PCM_SUB_24_BIT_PACKED;
+           break;
+        default:
+           break;
+      }
+      return ret;
+}
 
 #endif // QCOM_AUDIO_HW_H

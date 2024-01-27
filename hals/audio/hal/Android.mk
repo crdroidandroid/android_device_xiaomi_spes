@@ -16,7 +16,7 @@ LIBRARY_TINYCOMPRESS := libqti-tinycompress
 LIBRARY_TINYCOMPRESS_INC := $(TOP)/vendor/qcom/opensource/tinycompress/include
 endif
 
-ifneq ($(filter msm8974 msm8226 msm8084 msm8610 apq8084 msm8994 msm8992 msm8996 msm8998 apq8098_latv sdm845 sdm710 qcs605 sdmshrike msmnile kona lahaina holi sdm660 msm8937 msm8953 $(MSMSTEPPE) $(TRINKET) lito atoll bengal,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter msm8974 msm8226 msm8084 msm8610 apq8084 msm8994 msm8992 msm8996 msm8998 apq8098_latv sdm845 sdm710 qcs605 sdmshrike msmnile gen4 kona lahaina holi sdm660 msm8937 msm8953 $(MSMSTEPPE) $(TRINKET) lito atoll bengal,$(TARGET_BOARD_PLATFORM)),)
   # B-family platform uses msm8974 code base
   AUDIO_PLATFORM = msm8974
   MULTIPLE_HW_VARIANTS_ENABLED := true
@@ -72,7 +72,7 @@ endif
 ifneq ($(filter qcs605,$(TARGET_BOARD_PLATFORM)),)
   LOCAL_CFLAGS := -DPLATFORM_QCS605
 endif
-ifneq ($(filter msmnile sdmshrike,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter msmnile gen4 sdmshrike,$(TARGET_BOARD_PLATFORM)),)
   LOCAL_CFLAGS := -DPLATFORM_MSMNILE
   LOCAL_CFLAGS += -DMAX_TARGET_SPECIFIC_CHANNEL_CNT="4"
   LOCAL_CFLAGS += -DINCALL_MUSIC_ENABLED
@@ -135,8 +135,13 @@ ifeq ($(TARGET_BOARD_AUTO),true)
 endif
 
 ifeq ($(ENABLE_AUDIO_LEGACY_TECHPACK),true)
+ifeq ($(TARGET_BOARD_AUTO),true)
+  LIBRARY_TINYCOMPRESS := libqti-tinycompress
+  LIBRARY_TINYCOMPRESS_INC := $(TOP)/vendor/qcom/opensource/tinycompress/include
+else
   LIBRARY_TINYCOMPRESS := libtinycompress
   LIBRARY_TINYCOMPRESS_INC := external/tinycompress/include
+endif
   LOCAL_CFLAGS += -DENABLE_AUDIO_LEGACY_PURE
 endif
 
@@ -148,12 +153,20 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DAEMON_SUPPORT)), true)
   LOCAL_CFLAGS += -DDAEMON_SUPPORT_AUTO
 endif
 
+ifeq ($(strip $(AUDIO_FEATURE_ENABLED_EC_REF_CAPTURE)),true)
+LOCAL_CFLAGS += -DEC_REF_CAPTURE_ENABLED
+endif
+
 LOCAL_CFLAGS += -Wno-macro-redefined
 
 LOCAL_HEADER_LIBRARIES := libhardware_headers
 
 ifeq ($(ENABLE_AUDIO_LEGACY_TECHPACK),true)
   LOCAL_HEADER_LIBRARIES += qti_legacy_audio_kernel_uapi
+endif
+
+ifeq ($(AUDIO_FEATURE_ENABLED_HAL_V7), true)
+  LOCAL_CFLAGS += -DANDROID_U_HAL7
 endif
 
 LOCAL_SRC_FILES := \
@@ -426,10 +439,6 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_GCOV)),true)
 endif
 
 LOCAL_SHARED_LIBRARIES += libbase libhidlbase libutils android.hardware.power@1.2 liblog
-
-LOCAL_SHARED_LIBRARIES += android.hardware.power-V1-ndk
-LOCAL_SHARED_LIBRARIES += libbinder_ndk
-
 LOCAL_SRC_FILES += audio_perf.cpp
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_FM_TUNER_EXT)),true)
