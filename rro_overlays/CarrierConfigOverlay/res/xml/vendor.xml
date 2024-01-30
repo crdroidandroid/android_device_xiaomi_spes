@@ -2162,7 +2162,7 @@
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_allow_transfer_ims_call_bool" value="false" />
     </carrier_config>
-    <carrier_config mcc="470" mnc="07">
+    <carrier_config mcc="470" mnc="01,02,07">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="310" mnc="00">
