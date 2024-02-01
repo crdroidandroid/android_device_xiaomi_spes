@@ -1493,6 +1493,10 @@
         <boolean name="config_update_service_status" value="false" />
         <boolean name="carrier_supports_multianchor_conference" value="true" />
     </carrier_config>
+    <carrier_config mcc="413" mnc="05">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="432" mnc="10,11,20,35">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
