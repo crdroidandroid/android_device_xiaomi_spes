@@ -8,5 +8,5 @@ vendor.xiaomi.hardware.mtdservice::IMTService                                 u:
 vendor.xiaomi.hardware.displayfeature::IDisplayFeature                        u:object_r:hal_displayfeature_hwservice:s0
 
 # IMS
-vendor.qti.ims.callinfo::IService                                             u:object_r:hal_imscallinfo_hwservice:s0
-com.qualcomm.qti.uceservice::IUceService                                      u:object_r:hal_imsrcsd_hwservice:s0
+vendor.qti.ims.callinfo::IService                                             u:object_r:vendor_hal_imscallinfo_hwservice:s0
+com.qualcomm.qti.uceservice::IUceService                                      u:object_r:vendor_hal_imsrcsd_hwservice:s0
