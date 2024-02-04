@@ -2171,6 +2171,9 @@
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="510" mnc="01,09,10,11,">
+        <boolean name="carrier_volte_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="310" mnc="00">
         <boolean name="rtt_auto_upgrade_bool" value="true" />
         <boolean name="rtt_supported_bool" value="true" />
