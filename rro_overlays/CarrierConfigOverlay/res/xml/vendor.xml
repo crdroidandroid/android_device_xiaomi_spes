@@ -2359,7 +2359,7 @@
     <carrier_config mcc="310" mnc="950">
         <boolean name="require_apn_filtering_with_radio_capability_bool" value="true" />
     </carrier_config>
-    <carrier_config mcc="515" mnc="03">
+    <carrier_config mcc="515" mnc="02,03,66">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
