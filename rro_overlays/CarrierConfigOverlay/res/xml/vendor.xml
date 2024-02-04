@@ -2715,6 +2715,10 @@
     <carrier_config mcc="639" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
+    <carrier_config mcc="716" mnc="06,10,17">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
     <carrier_config mcc="652" mnc="02">
         <boolean name="fallback_sms_not_allowed_in_roaming" value="true" />
     </carrier_config>
