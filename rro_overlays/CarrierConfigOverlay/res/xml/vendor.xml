@@ -1503,7 +1503,7 @@
     </carrier_config>
     <carrier_config mcc="434" mnc="04,05,07,08">
         <boolean name="carrier_volte_available_bool" value="true" />
-    </carrier_config
+    </carrier_config>
     <carrier_config mcc="440" mnc="10">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
