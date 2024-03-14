@@ -525,3 +525,7 @@ endif
 # XiaomiParts
 PRODUCT_PACKAGES += \
     XiaomiParts
+
+# No Cutout Overlay
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
