@@ -5,18 +5,18 @@
     "branch": "15.0"
   },
   {
-    "repository": "ingexz01/device_xiaomi_spes",
+    "repository": "crdroidandroid/android_device_xiaomi_spes",
     "target_path": "device/xiaomi/spes",
-    "branch": "15"
+    "branch": "15.0"
   },
   {
-    "repository": "Jingexz01/kernel_xiaomi_spes",
+    "repository": "crdroidandroid/android_kernel_xiaomi_spes",
     "target_path": "kernel/xiaomi/spes",
-    "branch": "15"
+    "branch": "15.0"
   },
   {
-    "repository": "Jingexz01/vendor_xiaomi_spes",
+    "repository": "crdroidandroid/android_vendor_xiaomi_spes",
     "target_path": "vendor/xiaomi/spes",
-    "branch": "15"
+    "branch": "15.0"
   }
 ]
