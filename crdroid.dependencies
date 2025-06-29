@@ -14,9 +14,4 @@
     "target_path": "kernel/xiaomi/spes",
     "branch": "15.0"
   },
-  {
-    "repository": "crdroidandroid/android_vendor_xiaomi_spes",
-    "target_path": "vendor/xiaomi/spes",
-    "branch": "15.0"
-  }
 ]
