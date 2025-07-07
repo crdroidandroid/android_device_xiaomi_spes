@@ -973,7 +973,6 @@ vendor/etc/seccomp_policy/mediacodec.policy
 
 # Mlipay
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
--vendor/bin/mlipayd@1.1
 -vendor/bin/mtd@1.3
 vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
 -vendor/lib64/libmt@1.3.so
@@ -1003,7 +1002,14 @@ vendor/etc/st21nfc_conf.txt
 vendor/lib/libsn100u_fw.so
 -vendor/lib64/libst_sr_models.so
 -vendor/lib64/libstfactory-vendor.so
--vendor/lib64/nfc_nci.st21nfc.st.so
+vendor/lib64/nfc_nci.st21nfc.st.so
+vendor/bin/hw/android.hardware.nfc@1.2-service.st
+vendor/etc/init/android.hardware.nfc@1.2-service.st.rc
+vendor/lib/nfc_nci.st21nfc.st.so
+vendor/etc/libnfc-mtp-SN100.conf
+vendor/etc/libnfc-qrd-SN100.conf
+vendor/etc/libnfc-mtp-SN100_38_4MHZ.conf
+vendor/etc/libnfc-qrd-SN100_38_4MHZ.conf
 
 # NFC Firmware
 vendor/firmware/st21nfc_fw.bin
@@ -1409,13 +1415,11 @@ system_ext/etc/wfdconfigsink.xml
 -system_ext/lib64/libwfdclient.so
 -vendor/bin/wfdhdcphalservice
 -vendor/bin/wfdvndservice
--vendor/bin/wifidisplayhalservice
 vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/etc/init/wfdvndservice.rc
 vendor/etc/seccomp_policy/wfdhdcphalservice.policy
 vendor/etc/seccomp_policy/wfdvndservice.policy
-vendor/etc/seccomp_policy/wifidisplayhalservice.policy
 vendor/etc/wfdconfig.xml
 -vendor/lib/libFileMux_proprietary.so
 -vendor/lib/libmm-hdcpmgr.so
