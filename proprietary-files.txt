@@ -947,29 +947,66 @@ vendor/etc/seccomp_policy/mediacodec.policy
 -vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
 
 # Media OMX
--vendor/lib/libAlacSwDec.so
--vendor/lib/libApeSwDec.so
--vendor/lib/libFlacSwDec.so
--vendor/lib/libMpeg4SwEncoder.so
--vendor/lib/libOmxAacDec.so
--vendor/lib/libOmxAlacDec.so
--vendor/lib/libOmxAlacDecSw.so
--vendor/lib/libOmxAmrDec.so
--vendor/lib/libOmxAmrwbplusDec.so
--vendor/lib/libOmxApeDec.so
--vendor/lib/libOmxApeDecSw.so
--vendor/lib/libOmxDsdDec.so
--vendor/lib/libOmxEvrcDec.so
--vendor/lib/libOmxG711Dec.so
--vendor/lib/libOmxMpeghDecSw.so
--vendor/lib/libOmxMpeghEncSw.so
--vendor/lib/libOmxQcelp13Dec.so
--vendor/lib/libOmxSwVdec.so
--vendor/lib/libOmxSwVencMpeg4.so
--vendor/lib/libOmxVideoDSMode.so
--vendor/lib/libOmxWmaDec.so
--vendor/lib/libdsd2pcm.so
--vendor/lib/libswvdec.so
+
+# Audio Decoders
+vendor/lib/libAlacSwDec.so
+vendor/lib/libApeSwDec.so
+vendor/lib/libFlacSwDec.so
+vendor/lib/libMpeg4SwEncoder.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxAlacDec.so
+vendor/lib/libOmxAlacDecSw.so
+vendor/lib/libOmxAmrDec.so
+vendor/lib/libOmxAmrwbplusDec.so
+vendor/lib/libOmxApeDec.so
+vendor/lib/libOmxApeDecSw.so
+vendor/lib/libOmxDsdDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxG711Dec.so
+vendor/lib/libOmxMpeghDecSw.so
+vendor/lib/libOmxMpeghEncSw.so
+vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxSwVdec.so
+vendor/lib/libOmxSwVencMpeg4.so
+vendor/lib/libOmxVideoDSMode.so
+vendor/lib/libOmxWmaDec.so
+vendor/lib/libdsd2pcm.so
+vendor/lib/libswvdec.so
+vendor/lib/libmedia_omx.so
+vendor/lib/libOmxEvrcEnc.so
+vendor/lib/libOmxVdec.so
+vendor/lib/libOmxAmrEnc.so
+vendor/lib64/libOmxAmrEnc.so
+vendor/lib/libOmxG711Enc.so
+vendor/lib64/libOmxG711Enc.so
+vendor/lib/libOmxAacEnc.so
+vendor/lib64/libOmxAacEnc.so
+vendor/lib64/libOmxQcelp13Enc.so
+vendor/lib/libOmxMpeghEncSw.so
+
+# OMX HW Service & HAL
+vendor/bin/hw/android.hardware.media.omx@1.0-service
+vendor/etc/init/android.hardware.media.omx@1.0-service.rc
+
+# HAL interfaces
+vendor/lib/android.hardware.media.omx@1.0.so
+vendor/lib64/android.hardware.media.omx@1.0.so
+
+# Stagefright
+vendor/lib/libstagefright_omx.so
+vendor/lib64/libstagefright_omx.so
+vendor/lib/libstagefright_omx_utils.so
+vendor/lib64/libstagefright_omx_utils.so
+
+# Core OMX
+vendor/lib/libOmxCore.so
+vendor/lib64/libOmxCore.so
+
+# HW Encoders / Decoders
+vendor/lib/libOmxVenc.so
+vendor/lib64/libOmxVenc.so
+vendor/lib/libOmxVdec.so
+vendor/lib64/libOmxVdec.so
 
 # Mlipay
 -vendor/etc/vintf/manifest/manifest_vendor.xiaomi.hardware.mlipay.xml
@@ -1198,7 +1235,7 @@ vendor/etc/init/vendor.sensors.qti.rc
 vendor/etc/init/vendor.sensors.sscrpcd.rc
 vendor/etc/elliptic_sensor.xml
 -vendor/lib64/hw/sensors.elliptic@2.0.so
--vendor/lib64/libnotifyaudiohal.so
+vendor/lib64/libnotifyaudiohal.so
 -vendor/lib64/libsensorcal.so
 -vendor/lib64/libsensorslog.so
 -vendor/lib64/libsns_device_mode_stub.so

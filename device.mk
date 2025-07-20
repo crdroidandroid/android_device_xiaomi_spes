@@ -220,12 +220,30 @@ PRODUCT_PACKAGES += \
 # Dolby
 TARGET_EXCLUDES_AUDIOFX := true
 
+#Init
+$(call soong_config_set,libinit,vendor_init_lib,init_xiaomi_spes)
+
+#Health
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/input_suspend)
+$(call soong_config_set,lineage_health,charging_control_charging_enabled,0)
+$(call soong_config_set,lineage_health,charging_control_charging_disabled,1)
+$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4.vendor \
     android.hardware.drm-service.clearkey
 
+# OMX Hardware Encoder
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0 \
+    libmedia_omx \
+    libOmxCore \
+    libOmxVenc \
+    libOmxVdec \
+    libstagefright_omx \
+    libstagefright_omx_utils 
 # Fastbootd
 PRODUCT_PACKAGES += \
     fastbootd
@@ -337,6 +355,19 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml
 
+#OMX Encoders
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
+    $(LOCAL_PATH)/configs/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
+    $(LOCAL_PATH)/configs/media/media_profiles_khaje.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_khaje.xml \
+    $(LOCAL_PATH)/configs/media/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+    $(LOCAL_PATH)/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc
 # Mlipay
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.mlipay@1.1.vendor \
