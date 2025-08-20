@@ -34,3 +34,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 # Fingerprint
 BUILD_FINGERPRINT := "Redmi/spes/spes:13/TKQ1.221114.001/V816.0.8.0.TGCMIXM:user/release-keys"
+
+# ADB Debug
+# WITH_ADB_INSECURE := true

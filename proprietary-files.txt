@@ -43,6 +43,11 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 -vendor/lib64/libadsprpc.so
 -vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
+# memtrack HAL
+vendor/lib/hw/android.hardware.memtrack@1.0-impl.so
+vendor/lib64/hw/android.hardware.memtrack@1.0-impl.so
+vendor/etc/init/android.hardware.memtrack@1.0-service.rc
+
 # ADSP Modules
 -vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDADV_Encoder.so
 -vendor/lib/rfsa/adsp/capi_v2_aptX_CLHDAD_Speech_Decoder.so
