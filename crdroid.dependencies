@@ -2,12 +2,6 @@
   {
     "repository": "crdroidandroid/android_hardware_xiaomi",
     "target_path": "hardware/xiaomi"
-    "branch": "15.0"
-  },
-  {
-    "repository": "crdroidandroid/android_device_xiaomi_spes",
-    "target_path": "device/xiaomi/spes",
-    "branch": "15.0"
   },
   {
     "repository": "crdroidandroid/android_kernel_xiaomi_spes",
