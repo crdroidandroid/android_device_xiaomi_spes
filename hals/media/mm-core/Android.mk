@@ -55,7 +55,7 @@ endif
 endif
 
 LOCAL_PRELINK_MODULE    := false
-LOCAL_MODULE            := libOmxCore
+LOCAL_MODULE            := libOmxCores
 LOCAL_MODULE_TAGS       := optional
 LOCAL_VENDOR_MODULE     := true
 LOCAL_SHARED_LIBRARIES  := liblog libdl libcutils
