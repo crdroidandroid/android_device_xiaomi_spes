@@ -144,6 +144,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
+# Blur
+TARGET_ENABLE_BLUR := true
+
 # Camera
 PRODUCT_PACKAGES += \
     libutilscallstack.vendor \
@@ -324,8 +327,7 @@ PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
 # Media
-PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-service
+PRODUCT_PACKAGES += android.hardware.media.omx@1.0-service
 
 PRODUCT_PACKAGES += \
     libavservices_minijail \
