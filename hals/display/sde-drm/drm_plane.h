@@ -67,7 +67,10 @@
 #ifndef __DRM_PLANE_H__
 #define __DRM_PLANE_H__
 
+#if __has_include(<drm/sde_drm.h>)
 #include <drm/sde_drm.h>
+#endif
+
 #include <drm_interface.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>

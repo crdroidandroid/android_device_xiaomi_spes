@@ -39,7 +39,26 @@
 #include "xf86drm.h"
 #include "xf86drmMode.h"
 #include <drm/msm_drm.h>
+
+#if __has_include(<drm/msm_drm_pp.h>)
 #include <drm/msm_drm_pp.h>
+#define HAS_MSM_DRM_PP 1
+#else
+#define HAS_MSM_DRM_PP 0
+
+struct drm_panel_hdr_properties {
+  uint32_t dummy = 0;
+};
+
+struct drm_msm_ext_hdr_properties {
+  uint32_t dummy = 0;
+};
+
+#ifndef LTM_BUFFER_SIZE
+#define LTM_BUFFER_SIZE 1
+#endif
+
+#endif
 
 #ifdef KERNEL_5_4
 #include <drm/sde_drm.h>
