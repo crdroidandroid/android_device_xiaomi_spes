@@ -124,6 +124,10 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/configs/hidl/framework_compatibility_matrix-lineage.xml
 endif
 
+# AIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    $(DEVICE_PATH)/configs/aidl/framework_compatibility_matrix.xml
+
 # IMS
 BOARD_USES_LEGACY_IMS_SEPOLICY := true
 
