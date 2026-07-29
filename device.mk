@@ -219,7 +219,9 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 PRODUCT_PACKAGES += \
-    disable_configstore
+    disable_configstore \
+    vendor.qti.hardware.capabilityconfigstore@1.0 \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
 # Dolby
 TARGET_EXCLUDES_AUDIOFX := true
