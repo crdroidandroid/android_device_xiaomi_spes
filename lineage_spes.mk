@@ -29,6 +29,9 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 # Boot animaton
 TARGET_BOOT_ANIMATION_RES := 1080
 
+# EPPE
+TARGET_DISABLE_EPPE := true
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
