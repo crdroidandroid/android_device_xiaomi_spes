@@ -9,6 +9,10 @@ sleep 1
 # Remove pixel headers to avoid conflicts
 rm -rf hardware/google/pixel/kernel_headers/Android.bp
 
+# Remove conflicts
+rm -fr hardware/xiaomi/interfaces/xiaomi/hardware/mfidoca/1.0
+rm -fr hardware/xiaomi/interfaces/xiaomi/hardware/mtdservice/1.3
+
 # Remove hardware/lineage/compat to avoid conflicts
 rm -rf hardware/lineage/compat/Android.bp
 rm -fr hardware/lineage/interfaces/health/aidl/default/Android.bp
