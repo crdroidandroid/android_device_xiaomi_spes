@@ -2,6 +2,10 @@
 ro.ril.oem.btmac                                u:object_r:vendor_btmac_prop:s0
 persist.ro.ril.oem.btmac                        u:object_r:vendor_btmac_prop:s0
 
+ro.vendor.aware_available                       u:object_r:vendor_aware_available_prop:s0
+ro.max.fling_velocity                           u:object_r:exported_system_prop:s0
+ro.min.fling_velocity                           u:object_r:exported_system_prop:s0
+
 # Camera
 camera.                                         u:object_r:vendor_camera_prop:s0
 persist.camera.                                 u:object_r:vendor_camera_prop:s0

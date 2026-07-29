@@ -198,7 +198,7 @@ vendor.gralloc.secure_preview_buffer_format=420_sp
 vendor.display.override_doze_mode=1
 
 # Media Codecs
-debug.stagefright.c2inputsurface=-1
+# debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=1
 vendor.media.target.version=3
 vendor.sys.media.target.version=3

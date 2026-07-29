@@ -68,6 +68,7 @@ on post-fs
     start bootanim
     start vendor.configstore-hal
     start vendor.qti.hardware.display.allocator
+    start vendor.hwcomposer-2-1
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB

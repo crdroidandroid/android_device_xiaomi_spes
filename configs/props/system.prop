@@ -140,7 +140,7 @@ persist.rmnet.data.enable=true
 
 # Skia
 debug.hwui.skia_atrace_enabled=false
-renderthread.skia.reduceopstasksplitting=true
+# renderthread.skia.reduceopstasksplitting=true
 
 # Time-services
 persist.timed.enable=true
