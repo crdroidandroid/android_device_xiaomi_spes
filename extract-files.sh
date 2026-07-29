@@ -65,6 +65,9 @@ function blob_fixup() {
         vendor/lib64/libwvhidl.so)
             "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v34.so" "${2}"
             ;;
+        vendor/lib64/libdpps.so)
+            "${PATCHELF}" --replace-needed "libtinyxml2.so" "libtinyxml2-v34.so" "${2}"
+            ;;
     esac
 }
 

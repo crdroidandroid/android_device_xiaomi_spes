@@ -11,6 +11,7 @@ rm -rf hardware/google/pixel/kernel_headers/Android.bp
 
 # Remove hardware/lineage/compat to avoid conflicts
 rm -rf hardware/lineage/compat/Android.bp
+rm -fr hardware/lineage/interfaces/health/aidl/default/Android.bp
 
 # Sepolicy fix for imsrcsd
 echo -e "${color}Switch back to legacy imsrcsd sepolicy${end}"
