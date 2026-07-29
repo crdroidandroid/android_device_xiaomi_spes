@@ -149,7 +149,8 @@ TARGET_KERNEL_SOURCE := kernel/xiaomi/spes
 TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
 TARGET_KERNEL_HEADERS := kernel/xiaomi/spes
 TARGET_LINUX_KERNEL_VERSION := 4.19
-TARGET_KERNEL_CLANG_VERSION := r522817
+KERNEL_CC := CC=clang
+override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
 BUILD_GKI_BOOT_IMAGE := false
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
