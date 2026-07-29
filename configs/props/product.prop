@@ -65,6 +65,9 @@ ro.telephony.block_binder_thread_on_incoming_calls=false
 # Disable RescueParty due to high risk of data loss
 persist.sys.disable_rescue=true
 
+# BPF
+ro.bpf.kver_override=5.10.239
+
 # Battery Saving
 persist.radio.add_power_save=1
 pm.sleep_mode=1
