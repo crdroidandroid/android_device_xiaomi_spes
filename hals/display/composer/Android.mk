@@ -15,6 +15,7 @@ LOCAL_HEADER_LIBRARIES        := display_headers libThermal_headers
 
 LOCAL_CFLAGS                  := -Wno-missing-field-initializers -Wno-unused-parameter \
                                  -DLOG_TAG=\"SDM\" $(common_flags) -fcolor-diagnostics
+LOCAL_CFLAGS                  := -Wno-unused-variable
 LOCAL_CLANG                   := true
 
 LOCAL_SHARED_LIBRARIES        := libhistogram libbinder libhardware libutils libcutils libsync \
