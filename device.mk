@@ -86,7 +86,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml \
+    frameworks/native/data/etc/android.software.picture_in_picture.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.picture_in_picture.xml   
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -127,7 +129,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
-$(call soong_config_set,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
+#$(call soong_config_set,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -188,15 +190,16 @@ USE_DEX2OAT_DEBUG := false
 PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
-    memtrack.bengal
+    vendor.qti.hardware.memtrack-service
 
 PRODUCT_PACKAGES += \
     vendor.display.config@1.14 \
     vendor.display.config@1.11.vendor \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor
+
+SYSTEM_OPTIMIZE_JAVA := true
+SYSTEMUI_OPTIMIZE_JAVA := true
 
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator-service \
@@ -206,7 +209,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor \
     vendor.qti.hardware.display.mapperextensions@1.1.vendor \
-    vendor.xiaomi.hardware.displayfeature@1.0.vendor
+    vendor.qti.hardware.memtrack-service
 
 PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
@@ -219,7 +222,6 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 PRODUCT_PACKAGES += \
-    disable_configstore \
     vendor.qti.hardware.capabilityconfigstore@1.0 \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
@@ -290,8 +292,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1.vendor
 
 # HIDL
+#    android.hidl.base@1.0 \
+#
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
     android.hidl.base@1.0.vendor \
     android.hidl.memory.block@1.0.vendor \
     libhidltransport.vendor \
@@ -538,6 +541,10 @@ PRODUCT_COPY_FILES += \
 # VINTF
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+PRODUCT_PACKAGES += \
+    sensors.spes.v2:64
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 PRODUCT_PACKAGES += \
@@ -561,16 +568,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
-
-# WiFi Display
-PRODUCT_PACKAGES += \
-    libnl \
-    libwfdaac_vendor \
-    libjsoncpp.vendor \
-    libpng.vendor
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon
 
 # XiaomiParts
 PRODUCT_PACKAGES += \

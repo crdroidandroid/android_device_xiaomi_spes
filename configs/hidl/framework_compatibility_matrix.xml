@@ -776,14 +776,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>android.hardware.memtrack</name>
-        <version>1.0</version>
-        <interface>
-            <name>IMemtrack</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
         <hal format="aidl" optional="true">
         <name>vendor.lineage.health</name>
         <version>2</version>

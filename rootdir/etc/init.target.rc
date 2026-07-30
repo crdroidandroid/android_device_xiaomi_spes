@@ -109,9 +109,6 @@ on boot
     chown system system /sys/class/touch/touch_dev/palm_sensor
     chmod 0664 /sys/class/touch/touch_dev/palm_sensor
 
-    chown system system /sys/class/drm/card0-DSI-1/panel_info
-    chmod 0444 /sys/class/drm/card0-DSI-1/panel_info
-
     # Fingerprint
     chown system system /sys/bus/platform/devices/soc:fpc1020/irq
     chown system system /sys/bus/platform/devices/soc:fpc1020/wakeup_enable
@@ -208,23 +205,9 @@ on property:init.svc.vendor.per_mgr=running
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
-service vendor.displayfeature /vendor/bin/displayfeature
-    class late_start
-    user root
-    group root
-    task_profiles ServiceCapacityLow
-    disabled
-
-on property:init.svc.surfaceflinger=stopped
-    stop vendor.displayfeature
-
-on property:init.svc.surfaceflinger=running
-    start vendor.displayfeature
-
-on property:init.svc.surfaceflinger=restarting
-    stop vendor.displayfeature
-
 on property:sys.boot_completed=1
+    write /proc/sys/vm/swappiness 100
+    write /proc/sys/vm/vfs_cache_pressure 50
     # Disable statsd service to prevent additional battery drain
     stop statsd
     write /sys/block/zram0/comp_algorithm lz4

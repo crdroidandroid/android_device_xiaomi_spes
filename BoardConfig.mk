@@ -6,6 +6,8 @@
 
 DEVICE_PATH := device/xiaomi/spes
 
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
 # A/B
 AB_OTA_UPDATER := true
 
@@ -66,6 +68,9 @@ BOARD_HAVE_BLUETOOTH := true
 
 # Board
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+WITH_DEXPREOPT := true
+DEX_PREOPT_DEFAULT := generate-vdex-and-image
+WITH_DEXPREOPT_DEBUG_INFO := false
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := bengal
@@ -105,10 +110,6 @@ TARGET_GLOBAL_THINLTO := true
 BOARD_USES_METADATA_PARTITION := true
 
 # HALs
-QCOM_SOONG_NAMESPACE := $(DEVICE_PATH)/hals
-DEVICE_SPECIFIC_AUDIO_PATH := $(DEVICE_PATH)/hals/audio
-DEVICE_SPECIFIC_DISPLAY_PATH := $(DEVICE_PATH)/hals/display
-DEVICE_SPECIFIC_MEDIA_PATH := $(DEVICE_PATH)/hals/media
 TARGET_USES_CUSTOM_DISPLAY_INTERFACE := true
 
 # OTA assert
@@ -145,9 +146,9 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # Use actual kernel source instead of prebuilt
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_SOURCE := kernel/xiaomi/spes
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6225
 TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
-TARGET_KERNEL_HEADERS := kernel/xiaomi/spes
+TARGET_KERNEL_HEADERS := kernel/xiaomi/sm6225
 TARGET_LINUX_KERNEL_VERSION := 4.19
 KERNEL_CC := CC=clang
 override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-

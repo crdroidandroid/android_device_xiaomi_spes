@@ -496,7 +496,7 @@
          This flag controls whether the {@link Display#FLAG_SUPPORTS_PROTECTED_BUFFERS}
          flag is set for wifi displays.
     -->
-    <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
+    <bool name="config_wifiDisplaySupportsProtectedBuffers">false</bool>
 
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
@@ -671,8 +671,8 @@
     <!-- Should the pinner service pin the Camera application? -->
     <bool name="config_pinnerCameraApp">false</bool>
 
-    <!-- Should the pinner service pin the Home application? -->
-    <bool name="config_pinnerHomeApp">true</bool>
+    <!-- Bytes that the PinnerService will pin for Home app -->
+    <integer name="config_pinnerHomePinBytes">6291456</integer>
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
@@ -840,4 +840,11 @@
 
     <!-- Whether the new Auto Selection Network UI should be shown -->
     <bool name="config_enableNewAutoSelectNetworkUI">true</bool>
+
+    <!-- The device supports freeform window management. Windows have title bars and can be moved
+         and resized. If you set this to true, you also need to add
+         PackageManager.FEATURE_FREEFORM_WINDOW_MANAGEMENT feature to your device specification.
+         The duplication is necessary, because this information is used before the features are
+         available to the system.-->
+    <bool name="config_freeformWindowManagement">true</bool>
 </resources>

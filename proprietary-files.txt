@@ -157,50 +157,11 @@ vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 -vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 
 # Camera
--vendor/bin/f2player
--vendor/lib64/camera/com.qti.eeprom.irs2381c_polar.so
--vendor/lib64/camera/com.qti.eeprom.truly_cmb433.so
--vendor/lib64/camera/com.qti.flash.lm3644.so
--vendor/lib64/camera/com.qti.sensor.hi556.so
--vendor/lib64/camera/com.qti.sensor.imx318.so
--vendor/lib64/camera/com.qti.sensor.imx334.so
--vendor/lib64/camera/com.qti.sensor.imx362.so
--vendor/lib64/camera/com.qti.sensor.imx376.so
--vendor/lib64/camera/com.qti.sensor.imx386.so
--vendor/lib64/camera/com.qti.sensor.imx476.so
--vendor/lib64/camera/com.qti.sensor.imx481.so
--vendor/lib64/camera/com.qti.sensor.imx519.so
--vendor/lib64/camera/com.qti.sensor.imx576.so
--vendor/lib64/camera/com.qti.sensor.imx577.so
--vendor/lib64/camera/com.qti.sensor.imx586.so
 -vendor/lib64/camera/com.qti.sensor.k7t_gc02m1_macro.so
 -vendor/lib64/camera/com.qti.sensor.k7t_gc08a3_ultra.so
 -vendor/lib64/camera/com.qti.sensor.k7t_ov02b1b_depth.so
 -vendor/lib64/camera/com.qti.sensor.k7t_s5k3l6_front.so
 -vendor/lib64/camera/com.qti.sensor.k7t_s5kjn1_wide.so
--vendor/lib64/camera/com.qti.sensor.max7366_6dof.so
--vendor/lib64/camera/com.qti.sensor.max7366_eyetrack.so
--vendor/lib64/camera/com.qti.sensor.max7366_ov6211.so
--vendor/lib64/camera/com.qti.sensor.max7366_ov9282.so
--vendor/lib64/camera/com.qti.sensor.ov12a10.so
--vendor/lib64/camera/com.qti.sensor.ov12a10_front.so
--vendor/lib64/camera/com.qti.sensor.ov13855.so
--vendor/lib64/camera/com.qti.sensor.ov13880.so
--vendor/lib64/camera/com.qti.sensor.ov6211_master.so
--vendor/lib64/camera/com.qti.sensor.ov6211_slave.so
--vendor/lib64/camera/com.qti.sensor.ov7251.so
--vendor/lib64/camera/com.qti.sensor.ov8856.so
--vendor/lib64/camera/com.qti.sensor.ov8856_master.so
--vendor/lib64/camera/com.qti.sensor.ov8856_slave.so
--vendor/lib64/camera/com.qti.sensor.ov9282_master.so
--vendor/lib64/camera/com.qti.sensor.ov9282_slave.so
--vendor/lib64/camera/com.qti.sensor.s5k2l7.so
--vendor/lib64/camera/com.qti.sensor.s5k2x5sp.so
--vendor/lib64/camera/com.qti.sensor.s5k3m5.so
--vendor/lib64/camera/com.qti.sensor.s5k3p9.so
--vendor/lib64/camera/com.qti.sensor.s5k4h7.so
--vendor/lib64/camera/com.qti.sensor.s5k5e9yu05.so
--vendor/lib64/camera/com.qti.sensor.s5k5e9yx04.so
 vendor/lib64/camera/com.qti.sensormodule.k7t_aac_gc02m1_macro_ii.bin
 vendor/lib64/camera/com.qti.sensormodule.k7t_aac_gc08a3_ultra_i.bin
 vendor/lib64/camera/com.qti.sensormodule.k7t_aac_s5k3l6_front_ii.bin
@@ -212,17 +173,6 @@ vendor/lib64/camera/com.qti.sensormodule.k7t_qtech_s5k3l6_front_i.bin
 vendor/lib64/camera/com.qti.sensormodule.k7t_sunny_ov02b1b_depth_i.bin
 vendor/lib64/camera/com.qti.sensormodule.k7t_sunny_ov02b1b_depth_iii.bin
 vendor/lib64/camera/com.qti.sensormodule.k7t_truly_ov02b1b_depth_ii.bin
-vendor/lib64/camera/com.qti.tuned.agatti_lce_s5k3p9.bin
-vendor/lib64/camera/com.qti.tuned.agatti_lce_s5k4h7.bin
-vendor/lib64/camera/com.qti.tuned.agatti_lce_s5k5e9yx04.bin
-vendor/lib64/camera/com.qti.tuned.agatti_no_mfnr_lce_s5k3p9.bin
-vendor/lib64/camera/com.qti.tuned.agatti_truly_imx476.bin
-vendor/lib64/camera/com.qti.tuned.c3q_hi556.bin
-vendor/lib64/camera/com.qti.tuned.default.bin
-vendor/lib64/camera/com.qti.tuned.divar_lce_s5k3p9.bin
-vendor/lib64/camera/com.qti.tuned.divar_lce_s5k4h7.bin
-vendor/lib64/camera/com.qti.tuned.divar_lce_s5k5e9yx04.bin
-vendor/lib64/camera/com.qti.tuned.divar_truly_imx476.bin
 vendor/lib64/camera/com.qti.tuned.k7t_aac_gc02m1_macro_ii.bin
 vendor/lib64/camera/com.qti.tuned.k7t_aac_gc02m1_macro_ii_factory.bin
 vendor/lib64/camera/com.qti.tuned.k7t_aac_gc02m1_macro_ii_global.bin
@@ -267,10 +217,6 @@ vendor/lib64/camera/com.qti.tuned.k7t_truly_ov02b1b_depth_ii.bin
 vendor/lib64/camera/com.qti.tuned.k7t_truly_ov02b1b_depth_ii_factory.bin
 vendor/lib64/camera/com.qti.tuned.k7t_truly_ov02b1b_depth_ii_global.bin
 vendor/lib64/camera/com.qti.tuned.k7t_truly_ov02b1b_depth_ii_india.bin
-vendor/lib64/camera/com.qti.tuned.lce_s5k3p9.bin
-vendor/lib64/camera/com.qti.tuned.lce_s5k4h7.bin
-vendor/lib64/camera/com.qti.tuned.lce_s5k5e9yx04.bin
-vendor/lib64/camera/com.qti.tuned.truly_imx476.bin
 vendor/lib64/camera/fdconfigpreview.bin
 vendor/lib64/camera/fdconfigpreviewlite.bin
 vendor/lib64/camera/fdconfigvideo.bin
@@ -441,9 +387,6 @@ vendor/etc/camera/morpho_lowlight_2.0_ofilm_s5kjn1_wide_global.xml
 vendor/etc/camera/morpho_lowlight_2.0_ofilm_s5kjn1_wide_india.xml
 vendor/etc/camera/vidhance_calibration
 
-# Camera Device
--vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
-
 # Camera Feature
 -vendor/lib64/com.qti.chiusecaseselector.so
 -vendor/lib64/com.qti.feature2.anchorsync.so
@@ -461,21 +404,6 @@ vendor/etc/camera/vidhance_calibration
 -vendor/lib64/com.qti.feature2.serializer.so
 -vendor/lib64/com.qti.feature2.stub.so
 -vendor/lib64/com.qti.feature2.swmf.so
-
-# Camera (Prebuilt)
--vendor/bin/hw/android.hardware.camera.provider@2.4-service_64
-vendor/etc/init/android.hardware.camera.provider@2.4-service_64.rc
--vendor/lib64/android.hardware.camera.provider@2.4-external.so
--vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
--vendor/lib64/camera.device@1.0-impl.so
--vendor/lib64/camera.device@3.2-impl.so
--vendor/lib64/camera.device@3.3-impl.so
--vendor/lib64/camera.device@3.4-external-impl.so
--vendor/lib64/camera.device@3.4-impl.so
--vendor/lib64/camera.device@3.5-external-impl.so
--vendor/lib64/camera.device@3.5-impl.so
--vendor/lib64/camera.device@3.6-external-impl.so
--vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 
 # Camera Sensor
 -vendor/lib64/libmmcamera_cac3.so
@@ -585,15 +513,6 @@ vendor/etc/dsi_panel_k7_38_0c_0a_fhdp_video_display_mi.xml
 vendor/etc/dsi_panel_k7_38_0c_0b_fhdp_video_display_mi.xml
 vendor/etc/qdcm_calib_data_k7_38_0c_0a_video_mode_fhdp_dsi_panel.xml
 vendor/etc/qdcm_calib_data_k7_38_0c_0b_video_mode_fhdp_dsi_panel.xml
-
-# Displayfeature
--vendor/bin/hw/vendor.xiaomi.hardware.displayfeature@1.0-service
--vendor/bin/displayfeature
-vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
--vendor/lib64/hw/displayfeature.default.so
--vendor/lib64/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
--vendor/lib64/libdisplayfeature.so
--vendor/lib64/libdisplayfeatureservice.so
 
 # Display HDR
 -vendor/lib64/libhdr_tm.so
@@ -1314,7 +1233,6 @@ vendor/etc/sensors/config/sns_tilt_sw_disabled.json
 vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/sns_wrist_pedo.json
-vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
 vendor/etc/sensor_diag.cfg
 
@@ -1425,65 +1343,3 @@ vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
 -vendor/bin/cnss-daemon
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
-
-# WiFi Display
--system/framework/WfdCommon.jar
--system_ext/priv-app/WfdService/WfdService.apk
--system_ext/bin/wfdservice
-system_ext/etc/init/wfdservice.rc
-system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml
-system_ext/etc/seccomp_policy/wfdservice.policy
-system_ext/etc/wfdconfigsink.xml
--system_ext/lib/com.qualcomm.qti.wifidisplayhal@1.0.so
--system_ext/lib/libmmrtpdecoder.so
--system_ext/lib/libmmrtpencoder.so
--system_ext/lib/libwfdavenhancements.so
--system_ext/lib/libwfdclient.so
--system_ext/lib/libwfdcommonutils.so
--system_ext/lib/libwfdconfigutils.so
--system_ext/lib/libwfddisplayconfig.so
--system_ext/lib/libwfdmminterface.so
--system_ext/lib/libwfdmmsink.so
--system_ext/lib/libwfdmmsrc_system.so
--system_ext/lib/libwfdrtsp.so
--system_ext/lib/libwfdservice.so
--system_ext/lib/libwfdsinksm.so
--system_ext/lib/libwfduibcinterface.so
--system_ext/lib/libwfduibcsink.so
--system_ext/lib/libwfduibcsinkinterface.so
--system_ext/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
--system_ext/lib64/libmmrtpdecoder.so
--system_ext/lib64/libmmrtpencoder.so
--system_ext/lib64/libwfdclient.so
--vendor/bin/wfdhdcphalservice
--vendor/bin/wfdvndservice
-vendor/etc/init/android.hardware.drm@1.1-service.wfdhdcp.rc
-vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
-vendor/etc/init/wfdvndservice.rc
-vendor/etc/seccomp_policy/wfdhdcphalservice.policy
-vendor/etc/seccomp_policy/wfdvndservice.policy
-vendor/etc/wfdconfig.xml
--vendor/lib/libFileMux_proprietary.so
--vendor/lib/libmm-hdcpmgr.so
--vendor/lib/libmmrtpdecoder_proprietary.so
--vendor/lib/libmmrtpencoder_proprietary.so
--vendor/lib/libwfdcodecv4l2_proprietary.so
--vendor/lib/libwfdcommonutils_proprietary.so
--vendor/lib/libwfdconfigutils_proprietary.so
--vendor/lib/libwfddisplayconfig_proprietary.so
--vendor/lib/libwfdhdcpcp.so
--vendor/lib/libwfdhdcpservice_proprietary.so
--vendor/lib/libwfdmminterface_proprietary.so
--vendor/lib/libwfdmmservice_proprietary.so
--vendor/lib/libwfdmmsrc_proprietary.so
--vendor/lib/libwfdmodulehdcpsession.so
--vendor/lib/libwfdrtsp_proprietary.so
--vendor/lib/libwfdsessionmodule.so
--vendor/lib/libwfdsourcesession_proprietary.so
--vendor/lib/libwfdsourcesm_proprietary.so
--vendor/lib/libwfduibcinterface_proprietary.so
--vendor/lib/libwfduibcsink_proprietary.so
--vendor/lib/libwfduibcsinkinterface_proprietary.so
--vendor/lib/libwfdutils_proprietary.so
--vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so;MODULE_SUFFIX=_vendor
--vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
