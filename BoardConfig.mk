@@ -289,3 +289,17 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 include vendor/xiaomi/spes/BoardConfigVendor.mk
+
+# Force Soong variables to bypass type checking validation in Lineage Health AIDL
+SOONG_CONFIG_NAMESPACES += lineage_health
+
+SOONG_CONFIG_lineage_health += \
+    charging_control_supports_bypass \
+    charging_control_supports_deadline \
+    charging_control_supports_limit \
+    charging_control_supports_toggle
+
+SOONG_CONFIG_lineage_health_charging_control_supports_bypass := bool
+SOONG_CONFIG_lineage_health_charging_control_supports_deadline := bool
+SOONG_CONFIG_lineage_health_charging_control_supports_limit := bool
+SOONG_CONFIG_lineage_health_charging_control_supports_toggle := bool
