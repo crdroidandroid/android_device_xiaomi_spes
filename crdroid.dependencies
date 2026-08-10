@@ -1,18 +1,15 @@
 [
   {
     "repository": "crdroidandroid/android_hardware_xiaomi",
-    "target_path": "hardware/xiaomi",
-    "branch": "16.0"
+    "target_path": "hardware/xiaomi"
   },
   {
     "repository": "crdroidandroid/android_device_xiaomi_spes",
-    "target_path": "device/xiaomi/spes",
-    "branch": "16.0"
+    "target_path": "device/xiaomi/spes"
   },
   {
     "repository": "crdroidandroid/android_kernel_xiaomi_spes",
-    "target_path": "kernel/xiaomi/spes",
-    "branch": "16.0"
+    "target_path": "kernel/xiaomi/spes"
   },
   {
     "repository": "LineageOS/android_hardware_qcom_audio",
