@@ -146,9 +146,9 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # Use actual kernel source instead of prebuilt
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm6225
+TARGET_KERNEL_SOURCE := kernel/xiaomi/spes
 TARGET_KERNEL_CONFIG := vendor/spes-perf_defconfig
-TARGET_KERNEL_HEADERS := kernel/xiaomi/sm6225
+TARGET_KERNEL_HEADERS := kernel/xiaomi/spes
 TARGET_LINUX_KERNEL_VERSION := 4.19
 KERNEL_CC := CC=clang
 override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-

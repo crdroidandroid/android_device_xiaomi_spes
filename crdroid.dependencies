@@ -4,26 +4,11 @@
     "target_path": "hardware/xiaomi"
   },
   {
-    "repository": "crdroidandroid/android_device_xiaomi_spes",
-    "target_path": "device/xiaomi/spes"
+    "repository": "crdroidandroid/android_vendor_xiaomi_spes",
+    "target_path": "vendor/xiaomi/spes"
   },
   {
     "repository": "crdroidandroid/android_kernel_xiaomi_spes",
     "target_path": "kernel/xiaomi/spes"
-  },
-  {
-    "repository": "LineageOS/android_hardware_qcom_audio",
-    "target_path": "hardware/qcom-caf/sm8250/audio",
-    "branch": "lineage-23.2-caf-sm8250"
-  },
-  {
-    "repository": "LineageOS/android_hardware_qcom_display",
-    "target_path": "hardware/qcom-caf/sm8250/display",
-    "branch": "lineage-23.2-caf-sm8250"
-  },
-  {
-    "repository": "LineageOS/android_hardware_qcom_media",
-    "target_path": "hardware/qcom-caf/sm8250/media",
-    "branch": "lineage-23.2-caf-sm8250"
   }
 ]
